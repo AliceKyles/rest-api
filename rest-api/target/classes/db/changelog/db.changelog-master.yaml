@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-lesson1.yaml
+  - changeSet:
+      id: 1
+      author: your_liquibase_username
+      changes:
+        - createTable:
+            tableName: Codes
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: code
+                  type: int
+                  constraints:
+                    unique: true
+                    nullable: false
+
+  - changeSet:
+      id: 2
+      author: your_liquibase_username
+      changes:
+        - createTable:
+            tableName: Transactions
+            columns:
+              - column:
+                  name: code
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: string
+                  constraints:
+                    nullable: false
+              - column:
+                  name: time
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: contract_number
+                  type: int
+                  constraints:
+                    nullable: false
